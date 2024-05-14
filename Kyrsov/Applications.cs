@@ -22,7 +22,7 @@ namespace Kyrsov
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorARMDataSet3.Applications". При необходимости она может быть перемещена или удалена.
             this.applicationsTableAdapter.Fill(this.theMailOperatorARMDataSet3.Applications);
-
+            //TEST PROGRAMM
         }
 
         private void button1_Click(object sender, EventArgs e)
