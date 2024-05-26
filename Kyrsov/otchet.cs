@@ -121,5 +121,15 @@ namespace Kyrsov
             About_the_program newForm = new About_the_program();
             newForm.Show();
         }
+
+        private void инструкцияToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void прокатыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

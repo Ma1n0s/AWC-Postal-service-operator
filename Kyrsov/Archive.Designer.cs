@@ -1,6 +1,6 @@
 ﻿namespace Kyrsov
 {
-    partial class Other2
+    partial class Archive
     {
         /// <summary>
         /// Required designer variable.
@@ -38,40 +38,39 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(48, 41);
+            this.dataGridView1.Location = new System.Drawing.Point(75, 51);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(413, 131);
+            this.dataGridView1.Size = new System.Drawing.Size(655, 122);
             this.dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(495, 41);
+            this.button1.Location = new System.Drawing.Point(112, 221);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 23);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Генерация ";
+            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(495, 71);
+            this.button2.Location = new System.Drawing.Point(112, 251);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 23);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Печать";
+            this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(495, 101);
+            this.button3.Location = new System.Drawing.Point(112, 281);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(124, 23);
+            this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Распечатать чек";
+            this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // Other2
+            // Archive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,8 +79,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Other2";
-            this.Text = "Other2";
+            this.Name = "Archive";
+            this.Text = "Archive";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

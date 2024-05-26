@@ -53,6 +53,7 @@
             this.employeeBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.theMailOperatorDataSet2 = new Kyrsov.TheMailOperatorDataSet2();
             this.employeeTableAdapter2 = new Kyrsov.TheMailOperatorDataSet2TableAdapters.EmployeeTableAdapter();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.employsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theMailOperatorARMDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
@@ -139,13 +140,14 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.SteelBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(155, 135);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(63, 23);
             this.button1.TabIndex = 41;
             this.button1.Text = "Вход";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
@@ -160,7 +162,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(134, 165);
+            this.label5.Location = new System.Drawing.Point(134, 193);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 13);
             this.label5.TabIndex = 46;
@@ -228,12 +230,22 @@
             // 
             this.employeeTableAdapter2.ClearBeforeFill = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(387, 95);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(302, 250);
+            this.groupBox1.TabIndex = 48;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // avtor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(863, 647);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -286,6 +298,7 @@
         private TheMailOperatorDataSet2 theMailOperatorDataSet2;
         private System.Windows.Forms.BindingSource employeeBindingSource2;
         private TheMailOperatorDataSet2TableAdapters.EmployeeTableAdapter employeeTableAdapter2;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

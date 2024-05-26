@@ -39,5 +39,17 @@ namespace Kyrsov
             Other2 newForm = new Other2();
             newForm.Show();
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            Applications newForm = new Applications();
+            newForm.Show();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            Archive newForm = new Archive();
+            newForm.Show();
+        }
     }
 }

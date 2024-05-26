@@ -35,14 +35,12 @@ namespace Kyrsov
 
         private void button2_Click(object sender, EventArgs e)
         {
-            client newForm = new client();
-            newForm.Show();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Employee newForm = new Employee();
-            newForm.Show();
+
         }
 
         public void setTableWithParams(int id = 0, string FIO = "", string address = "", string tip = "", string Weight = "")
@@ -222,8 +220,8 @@ namespace Kyrsov
 
         private void клиентToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            newClient newForm = new newClient();
-            newForm.Show();
+            /*newClient newForm = new newClient();
+            newForm.Show();*/
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -238,8 +236,7 @@ namespace Kyrsov
 
         private void велосипедToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mail newForm = new mail();
-            newForm.Show();
+
         }
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)

@@ -253,8 +253,9 @@
             // прокатыToolStripMenuItem
             // 
             this.прокатыToolStripMenuItem.Name = "прокатыToolStripMenuItem";
-            this.прокатыToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.прокатыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.прокатыToolStripMenuItem.Text = "Отчёт-посылки";
+            this.прокатыToolStripMenuItem.Click += new System.EventHandler(this.прокатыToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -283,13 +284,14 @@
             // инструкцияToolStripMenuItem1
             // 
             this.инструкцияToolStripMenuItem1.Name = "инструкцияToolStripMenuItem1";
-            this.инструкцияToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.инструкцияToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.инструкцияToolStripMenuItem1.Text = "Инструкция";
+            this.инструкцияToolStripMenuItem1.Click += new System.EventHandler(this.инструкцияToolStripMenuItem1_Click);
             // 
             // видеоИнструкцияToolStripMenuItem
             // 
             this.видеоИнструкцияToolStripMenuItem.Name = "видеоИнструкцияToolStripMenuItem";
-            this.видеоИнструкцияToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.видеоИнструкцияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.видеоИнструкцияToolStripMenuItem.Text = "Видео инструкция";
             // 
             // otchet

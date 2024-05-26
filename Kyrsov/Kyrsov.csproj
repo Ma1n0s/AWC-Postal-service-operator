@@ -110,6 +110,12 @@
     <Compile Include="Applications.Designer.cs">
       <DependentUpon>Applications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Archive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archive.Designer.cs">
+      <DependentUpon>Archive.cs</DependentUpon>
+    </Compile>
     <Compile Include="authorization.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,47 +151,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="client.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="client.Designer.cs">
-      <DependentUpon>client.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Employee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Employee.Designer.cs">
-      <DependentUpon>Employee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="newEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="newEmployee.Designer.cs">
-      <DependentUpon>newEmployee.cs</DependentUpon>
-    </Compile>
     <Compile Include="otchet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="otchet.Designer.cs">
       <DependentUpon>otchet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="newClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="newClient.Designer.cs">
-      <DependentUpon>newClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="mail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="mail.Designer.cs">
-      <DependentUpon>mail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form9.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form9.Designer.cs">
-      <DependentUpon>Form9.cs</DependentUpon>
     </Compile>
     <Compile Include="Other2.cs">
       <SubType>Form</SubType>
@@ -217,6 +187,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TheMailOperatorARMDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TheMailOperatorARMDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet16.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TheMailOperatorARMDataSet21.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -226,6 +231,36 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TheMailOperatorARMDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TheMailOperatorARMDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheMailOperatorARMDataSet9.xsd</DependentUpon>
     </Compile>
     <Compile Include="TheMailOperatorDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -254,6 +289,9 @@
     <EmbeddedResource Include="Applications.resx">
       <DependentUpon>Applications.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Archive.resx">
+      <DependentUpon>Archive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="authorization.resx">
       <DependentUpon>authorization.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,26 +304,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="client.resx">
-      <DependentUpon>client.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Employee.resx">
-      <DependentUpon>Employee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="newEmployee.resx">
-      <DependentUpon>newEmployee.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="otchet.resx">
       <DependentUpon>otchet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="newClient.resx">
-      <DependentUpon>newClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="mail.resx">
-      <DependentUpon>mail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form9.resx">
-      <DependentUpon>Form9.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Other2.resx">
       <DependentUpon>Other2.cs</DependentUpon>
@@ -364,6 +384,83 @@
     <None Include="TheMailOperatorARMDataSet1.xss">
       <DependentUpon>TheMailOperatorARMDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="TheMailOperatorARMDataSet10.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet10.xss">
+      <DependentUpon>TheMailOperatorARMDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet11.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet11.xss">
+      <DependentUpon>TheMailOperatorARMDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet12.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet12.xss">
+      <DependentUpon>TheMailOperatorARMDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet13.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet13.xss">
+      <DependentUpon>TheMailOperatorARMDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet14.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet14.xss">
+      <DependentUpon>TheMailOperatorARMDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet15.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet15.xss">
+      <DependentUpon>TheMailOperatorARMDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet16.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet16.xss">
+      <DependentUpon>TheMailOperatorARMDataSet16.xsd</DependentUpon>
+    </None>
     <None Include="TheMailOperatorARMDataSet21.xsc">
       <DependentUpon>TheMailOperatorARMDataSet21.xsd</DependentUpon>
     </None>
@@ -385,6 +482,72 @@
     </None>
     <None Include="TheMailOperatorARMDataSet3.xss">
       <DependentUpon>TheMailOperatorARMDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet4.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet4.xss">
+      <DependentUpon>TheMailOperatorARMDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet5.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet5.xss">
+      <DependentUpon>TheMailOperatorARMDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet6.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet6.xss">
+      <DependentUpon>TheMailOperatorARMDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet7.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet7.xss">
+      <DependentUpon>TheMailOperatorARMDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet8.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet8.xss">
+      <DependentUpon>TheMailOperatorARMDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet9.xsc">
+      <DependentUpon>TheMailOperatorARMDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="TheMailOperatorARMDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TheMailOperatorARMDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TheMailOperatorARMDataSet9.xss">
+      <DependentUpon>TheMailOperatorARMDataSet9.xsd</DependentUpon>
     </None>
     <None Include="TheMailOperatorDataSet.xsc">
       <DependentUpon>TheMailOperatorDataSet.xsd</DependentUpon>
@@ -460,6 +623,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
