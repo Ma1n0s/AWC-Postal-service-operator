@@ -13,26 +13,32 @@ namespace Kyrsov
 {
     public partial class Other2 : Form
     {
+        Form form;
+        public string path1 = @"C:\Users\kiril\Desktop\kyrsov\Kyrsov\Kyrsov\stat_otchet.xlsx";
         public Other2()
         {
             InitializeComponent();
+            this.form = form;
         }
+        public string connectionString = @"Data Source=DESKTOP-OK9RI9B\MSSQLSERVER1;Initial Catalog='TheMailOperatorARM';Integrated Security=True";
 
         private void button1_Click(object sender, EventArgs e)
         {
-           /* dataGridView1.Rows.Clear();
+            dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
 
-            string sqlExpression = "SELECT Correspondence.id_Correspondence, Correspondence.tip, Correspondence.Weight, Correspondence.Sum, Correspondence.Firm, Correspondence.Departure_date, Correspondence.Date_of_receiving FROM Correspondence INNER JOIN Insurance ON Insurance.id_Insurance = Correspondence.id_Insurance WHERE Correspondence.Departure_date BETWEEN @from AND @to";
+            string sqlExpression = "INSERT INTO dbo.Applications (post_office_address,fio_sender,phone_sender,address_sender," +
+                    "fio_recipient,phone_recipient,address_recipient,length,width,height,weight,parcel_contents,price,status,random_password,type_of_departure,payment,region,apartment," +
+                    "apartment_nubmer,street,city,dispatch_time) VALUES (@post_office_address,@fio_sender,@phone_sender," +
+                    "@address_sender,@fio_recipient,@phone_recipient,@address_recipient,@length,@width,@height,@weight,@parcel_contents,@price," +
+                    "@status,@random_password,@type_of_departure,@payment,@region,@apartment,@apartment_nubmer,@street,@city,@dispatch_time)";
             SqlConnection conn = new SqlConnection(connectionString);
 
             var fromDate = dateTimePicker1.Value;
-            var toDate = dateTimePicker2.Value;
 
             conn.Open();
             SqlCommand command = new SqlCommand(sqlExpression, conn);
             command.Parameters.Add("@from", SqlDbType.Date).Value = fromDate;
-            command.Parameters.Add("@to", SqlDbType.Date).Value = toDate;
             command.CommandText = sqlExpression;
             SqlDataReader reader = command.ExecuteReader();
 
@@ -54,7 +60,22 @@ namespace Kyrsov
             foreach (string[] s in data)
             {
                 dataGridView1.Rows.Add(s);
-            }*/
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Other2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

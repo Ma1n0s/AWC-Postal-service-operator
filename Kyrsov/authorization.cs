@@ -75,7 +75,7 @@ namespace Kyrsov
                             string fio = reader["fio"].ToString();
                             string address = reader["address"].ToString();
 
-                            MessageBox.Show(fio);
+                            MessageBox.Show("Добро пожаловать:" + fio);
 
                         }
                         FormMain frm = new FormMain();
@@ -133,21 +133,13 @@ namespace Kyrsov
                     }
                 }
             }
+            this.Close();
         }
 
 
         private void avtor_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorDataSet2.Employee". При необходимости она может быть перемещена или удалена.
-            this.employeeTableAdapter2.Fill(this.theMailOperatorDataSet2.Employee);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorDataSet1.Employee". При необходимости она может быть перемещена или удалена.
-            this.employeeTableAdapter1.Fill(this.theMailOperatorDataSet1.Employee);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorARMDataSet1.Employs". При необходимости она может быть перемещена или удалена.
-            this.employsTableAdapter1.Fill(this.theMailOperatorARMDataSet1.Employs);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorARMDataSet.Employs". При необходимости она может быть перемещена или удалена.
-            this.employsTableAdapter.Fill(this.theMailOperatorARMDataSet.Employs);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorDataSet.Employee". При необходимости она может быть перемещена или удалена.
-            this.employeeTableAdapter.Fill(this.theMailOperatorDataSet.Employee);
+
 
         }
 
@@ -187,6 +179,31 @@ namespace Kyrsov
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            panel1.BackColor = Color.FromArgb(10, 18, 80);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
 
         }

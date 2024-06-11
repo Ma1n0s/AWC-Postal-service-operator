@@ -253,7 +253,7 @@
             // прокатыToolStripMenuItem
             // 
             this.прокатыToolStripMenuItem.Name = "прокатыToolStripMenuItem";
-            this.прокатыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.прокатыToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.прокатыToolStripMenuItem.Text = "Отчёт-посылки";
             this.прокатыToolStripMenuItem.Click += new System.EventHandler(this.прокатыToolStripMenuItem_Click);
             // 
@@ -268,7 +268,7 @@
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
@@ -284,14 +284,14 @@
             // инструкцияToolStripMenuItem1
             // 
             this.инструкцияToolStripMenuItem1.Name = "инструкцияToolStripMenuItem1";
-            this.инструкцияToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.инструкцияToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
             this.инструкцияToolStripMenuItem1.Text = "Инструкция";
             this.инструкцияToolStripMenuItem1.Click += new System.EventHandler(this.инструкцияToolStripMenuItem1_Click);
             // 
             // видеоИнструкцияToolStripMenuItem
             // 
             this.видеоИнструкцияToolStripMenuItem.Name = "видеоИнструкцияToolStripMenuItem";
-            this.видеоИнструкцияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.видеоИнструкцияToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.видеоИнструкцияToolStripMenuItem.Text = "Видео инструкция";
             // 
             // otchet
@@ -307,6 +307,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "otchet";
             this.Text = "Отчёт";
+            this.Load += new System.EventHandler(this.otchet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -74,7 +74,6 @@ namespace Kyrsov
             {
                 return;
             }
-            float id = float.Parse(textBox4.Text);
 
             string sqlExpression = "DELETE FROM Employs WHERE [id] = @id";
 
@@ -83,9 +82,10 @@ namespace Kyrsov
             SqlCommand myCommand = conn.CreateCommand();
 
             myCommand.CommandText = sqlExpression;
-            myCommand.Parameters.Add("@id", SqlDbType.Money).Value = id;
+            myCommand.Parameters.Add("@id", SqlDbType.Int).Value = selected;
 
             var lastId = myCommand.ExecuteScalar();
+            /*setTable();*/
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -99,7 +99,7 @@ namespace Kyrsov
             string login = textBox2.Text;
             string password = textBox3.Text;
 
-            string sqlExpression = "UPDATE dbo.Employs (fio, login, password) VALUES (@fio, @login, @password)";
+            string sqlExpression = "UPDATE dbo.Employs fio = @fio,login = @login,password = @password WHERE id = @id";
 
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -110,19 +110,12 @@ namespace Kyrsov
             myCommand.Parameters.Add("@fio", SqlDbType.VarChar).Value = fio;
             myCommand.Parameters.Add("@login", SqlDbType.VarChar).Value = login;
             myCommand.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+            myCommand.Parameters.Add("@id", SqlDbType.Int).Value = selected;
 
             myCommand.ExecuteNonQuery();
             conn.Close();
         }
 
-        private void CreateColumns()
-        {
-            /*dataGridView1.Columns.Add("id", "id");
-            dataGridView1.Columns.Add("fio", "фио");
-            dataGridView1.Columns.Add("phone", "Телефон");
-            dataGridView1.Columns.Add("address", "адрес");
-            dataGridView1.Columns.Add("IsNew", string.Empty);*/
-        }
 
         private void ReadSingRow(DataRow dgw, IDataAdapter record)
         {
@@ -141,54 +134,29 @@ namespace Kyrsov
 
         private void Employee2_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorARMDataSet2.Employs". При необходимости она может быть перемещена или удалена.
-            this.employsTableAdapter.Fill(this.theMailOperatorARMDataSet2.Employs);
-            LoadData();
-            CreateColumns();
-            RefreshDataGrid(dataGridView1);
 
-        }
-
-        private void LoadData()
-        {
-
-            /*MySqlConnection connection = new MySqlConnection(connectionString);
-            connectionString.Open();
-            MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT * FROM data";
-            DataTable dt = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            connection.Close();*/
         }
 
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string fio = "";
-            string login = "";
-            string password = "";
-
-            DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-            string id = Convert.ToString(selectedRow.Cells[0].Value);
-            if (id != "")
+            if (e.RowIndex >= 0)
             {
-                selected = int.Parse(id);
-                textBox1.Text = fio = Convert.ToString(selectedRow.Cells[2].Value);
-                textBox2.Text = login = Convert.ToString(selectedRow.Cells[3].Value);
-                textBox3.Text = password = Convert.ToString(selectedRow.Cells[4].Value);
-                /*              
-
-                            /*selectRow = e.RowIndex;
-
-                            if(e.RowIndex >= 0) 
-                            {
-                                DataGridViewRow = dataGridView1.Rows[selectedRow];
-                                textBox1
-                            }*/
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                string id = Convert.ToString(selectedRow.Cells[0].Value);
+                if (id != "")
+                {
+                    selected = int.Parse(id);
+                    textBox1.Text = fio = Convert.ToString(selectedRow.Cells[2].Value);
+                    textBox2.Text = login = Convert.ToString(selectedRow.Cells[3].Value);
+                    textBox3.Text = password = Convert.ToString(selectedRow.Cells[4].Value);
+                }
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            panel1.BackColor = Color.FromArgb(51, 51, 76);
         }
     }
 }

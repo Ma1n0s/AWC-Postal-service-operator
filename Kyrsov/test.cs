@@ -16,5 +16,10 @@ namespace Kyrsov
         {
             InitializeComponent();
         }
+
+        private void test_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
