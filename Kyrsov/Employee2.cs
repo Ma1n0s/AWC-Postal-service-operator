@@ -1,18 +1,9 @@
 ﻿using Kyrsov.bin;
-using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Utilities.Net;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Kyrsov
 {
@@ -31,12 +22,12 @@ namespace Kyrsov
         {
             InitializeComponent();
         }
-        DataBase dataBase = new DataBase();
         string connectionString = @"Data Source=DESKTOP-OK9RI9B\MSSQLSERVER1;Initial Catalog='TheMailOperatorARM';Integrated Security=True";
         public int selected = -1;
         string fio = "";
         string login = "";
         string password = "";
+        string role = "";
 
 
         private void label1_Click(object sender, EventArgs e)
@@ -49,8 +40,9 @@ namespace Kyrsov
             string fio = textBox1.Text;
             string login = textBox2.Text;
             string password = textBox3.Text;
+            string role = listBox1.Text;
 
-            string sqlExpression = "INSERT INTO dbo.Employs (fio, login, password) VALUES (@fio, @login, @password)";
+            string sqlExpression = "INSERT INTO dbo.Employs (fio, login, password, role) VALUES (@fio, @login, @password, @role)";
 
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -61,6 +53,7 @@ namespace Kyrsov
             myCommand.Parameters.Add("@fio", SqlDbType.VarChar).Value = fio;
             myCommand.Parameters.Add("@login", SqlDbType.VarChar).Value = login;
             myCommand.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+            myCommand.Parameters.Add("@role", SqlDbType.VarChar).Value = role;
 
             var lastId = myCommand.ExecuteScalar();
             this.Close();
@@ -98,8 +91,9 @@ namespace Kyrsov
             string fio = textBox1.Text;
             string login = textBox2.Text;
             string password = textBox3.Text;
+            string role = listBox1.Text;
 
-            string sqlExpression = "UPDATE dbo.Employs fio = @fio,login = @login,password = @password WHERE id = @id";
+            string sqlExpression = "UPDATE dbo.Employs SET fio = @fio,login = @login,password = @password, role = @role WHERE id = @id";
 
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -110,8 +104,8 @@ namespace Kyrsov
             myCommand.Parameters.Add("@fio", SqlDbType.VarChar).Value = fio;
             myCommand.Parameters.Add("@login", SqlDbType.VarChar).Value = login;
             myCommand.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+            myCommand.Parameters.Add("@role", SqlDbType.VarChar).Value = role;
             myCommand.Parameters.Add("@id", SqlDbType.Int).Value = selected;
-
             myCommand.ExecuteNonQuery();
             conn.Close();
         }
@@ -134,6 +128,9 @@ namespace Kyrsov
 
         private void Employee2_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorARMDataSet1.Employs". При необходимости она может быть перемещена или удалена.
+            this.employsTableAdapter.Fill(this.theMailOperatorARMDataSet1.Employs);
+
 
         }
 
@@ -147,9 +144,10 @@ namespace Kyrsov
                 if (id != "")
                 {
                     selected = int.Parse(id);
-                    textBox1.Text = fio = Convert.ToString(selectedRow.Cells[2].Value);
-                    textBox2.Text = login = Convert.ToString(selectedRow.Cells[3].Value);
-                    textBox3.Text = password = Convert.ToString(selectedRow.Cells[4].Value);
+                    textBox1.Text = fio = Convert.ToString(selectedRow.Cells[1].Value);
+                    textBox2.Text = login = Convert.ToString(selectedRow.Cells[2].Value);
+                    textBox3.Text = password = Convert.ToString(selectedRow.Cells[3].Value);
+                    listBox1.Text = role = Convert.ToString(selectedRow.Cells[4].Value);
                 }
             }
         }

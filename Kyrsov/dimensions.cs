@@ -40,28 +40,28 @@ namespace Kyrsov
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Bitmap b = new Bitmap(@"E:\Kyrsov\Kyrsov\Properties\dimension-size-s.PNG");
+            Bitmap b = new Bitmap(@"E:\diplom\Kyrsov\Properties\dimension-size-s.PNG");
             pictureBox1.Image = b;
             ActivateButton(sender as Control);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Bitmap b = new Bitmap(@"E:\Kyrsov\Kyrsov\Properties\dimension-size-m.PNG");
+            Bitmap b = new Bitmap(@"E:\diplom\Kyrsov\Properties\dimension-size-m.PNG");
             pictureBox1.Image = b;
             ActivateButton(sender as Control);
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            Bitmap b = new Bitmap(@"E:\Kyrsov\Kyrsov\Properties\dimension-size-l.PNG");
+            Bitmap b = new Bitmap(@"E:\diplom\Kyrsov\Properties\dimension-size-l.PNG");
             pictureBox1.Image = b;
             ActivateButton(sender as Control);
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            Bitmap b = new Bitmap(@"E:\Kyrsov\Kyrsov\Properties\dimension-size-xl.PNG");
+            Bitmap b = new Bitmap(@"E:\diplom\Kyrsov\Properties\dimension-size-xl.PNG");
             pictureBox1.Image = b;
             ActivateButton(sender as Control);
         }

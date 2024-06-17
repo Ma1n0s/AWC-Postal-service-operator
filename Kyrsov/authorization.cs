@@ -1,24 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
+using System.Drawing;
+using System.Windows.Forms;
 
 
 namespace Kyrsov
 {
     public partial class avtor : Form
     {
-        DataTable database = new DataTable();
-
-        private string commandText = "SELECT * From Employs Where login = @login AND password = @password";
-        private string commandText2 = "SELECT * From PostMail Where login = @login AND password = @password";
         private string connectionString = @"Data Source=DESKTOP-OK9RI9B\MSSQLSERVER1;Initial Catalog='TheMailOperatorARM';Integrated Security=True";
         /*private string connectionString = @"Data Source=219_05\SQLEXPRESS;Initial Catalog=IS42P;Integrated Security=True";*/
         public avtor()
@@ -27,119 +17,65 @@ namespace Kyrsov
             label2.Visible = false;
             StartPosition = FormStartPosition.CenterScreen;
         }
-
+        private bool flag = false;
         private void button1_Click(object sender, EventArgs e)
         {
             string login = this.textBox1.Text;
             string password = this.textBox2.Text;
-            /*int userRole = GetUserRole(login, password, role);*/
-            /*switch (userRole)
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand myCommand = conn.CreateCommand();
+            myCommand.CommandText = "SELECT * FROM Employs WHERE Login = @login AND Password = @password";
+            myCommand.Parameters.Add("@login", SqlDbType.VarChar, 50);
+            myCommand.Parameters["@login"].Value = login;
+            myCommand.Parameters.Add("@password", SqlDbType.VarChar, 50);
+            myCommand.Parameters["@password"].Value = password;
+
+            using (SqlDataReader reader = myCommand.ExecuteReader())
             {
-                case 1: 
-                    FormMain frm1 = new FormMain();
-                    this.Hide();
-                    frm1.ShowDialog();
-                    this.Show();
-                    break;
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string role = reader["Role"].ToString();
 
-                case 2: 
-                    test frm2 = new test();
-                    this.Hide();
-                    frm2.ShowDialog();
-                    this.Show();
-                    break;
+                        if (role == "admin")
+                        {
+                            string fio = reader["fio"].ToString();
+                            MessageBox.Show("Добро пожаловать, админ " + fio);
 
-                default:
+                                FormMain frm = new FormMain();
+                                this.Hide();
+                                frm.ShowDialog();
+                                this.Show();
+                        }
+                        else if (role == "user")
+                        {
+                            string fio = reader["fio"].ToString();
+                            MessageBox.Show("Добро пожаловать, пользователь " + fio);
+                           
+                                UsersMail frm = new UsersMail();
+                                this.Hide();
+                                frm.ShowDialog();
+                                this.Show();
+                        }
+                    }
+                    
+                }
+                else
+                {
                     label2.Visible = true;
-                    label2.Text = "Вы ввели неправильный логин или пароль";
-                    break;
-            }*/
-
-            if (checkBox1.Checked)
-            {
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand myCommand = conn.CreateCommand();
-                myCommand.CommandText = commandText2;
-                myCommand.Parameters.Add("@login", SqlDbType.VarChar, 50);
-                myCommand.Parameters["@login"].Value = login;
-                myCommand.Parameters.Add("@password", SqlDbType.VarChar, 50);
-                myCommand.Parameters["@password"].Value = password;
-
-                using (SqlDataReader reader = myCommand.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            string fio = reader["fio"].ToString();
-                            string address = reader["address"].ToString();
-
-                            MessageBox.Show("Добро пожаловать:" + fio);
-
-                        }
-                        FormMain frm = new FormMain();
-                        this.Hide();
-                        frm.ShowDialog();
-                        this.Show();
-                    }
-                    else
-                    {
-                        label2.Visible = true;
-                        label2.Text = "Вы неправильно ввели логин/пароль";
-                    }
-                }
-                conn.Close();
-            }
-            else
-            {
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand myCommand = conn.CreateCommand();
-                myCommand.CommandText = commandText;
-                myCommand.Parameters.Add("@login", SqlDbType.VarChar, 50);
-                myCommand.Parameters["@login"].Value = login;
-                myCommand.Parameters.Add("@password", SqlDbType.VarChar, 50);
-                myCommand.Parameters["@password"].Value = password;
-
-                using (SqlDataReader reader = myCommand.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            string fio = reader["fio"].ToString();
-
-                            MessageBox.Show(fio);
-
-                        }
-                    }
-                    else
-                    {
-                        // Обработка случая, когда данных о пользователе не найдены
-                    }
-                    if (true)
-                    {
-                        test frm = new test();
-                        this.Hide();
-                        frm.ShowDialog();
-                        this.Show();
-
-                    }
-                    else
-                    {
-                        label2.Visible = true;
-                        label2.Text = "Вы неправильно ввели логин/пароль";
-                    }
+                    label2.Text = "Вы неправильно ввели логин/пароль";
                 }
             }
-            this.Close();
+            conn.Close();
+            
         }
 
 
         private void avtor_Load(object sender, EventArgs e)
         {
-
+            textBox2.UseSystemPasswordChar = true;
 
         }
 
@@ -200,7 +136,11 @@ namespace Kyrsov
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            if (!flag)
+                WindowState = FormWindowState.Maximized;
+            else
+                WindowState = FormWindowState.Normal;
+            flag = !flag;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -208,26 +148,21 @@ namespace Kyrsov
 
         }
 
-        /*private int GetUserRole(string login, string password)
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            if(checkBox1.Checked) 
             {
-                conn.Open();
-                SqlCommand command = new SqlCommand(commandText, conn);
-                command.Parameters.AddWithValue("@login", login);
-                command.Parameters.AddWithValue("@password", password);
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        reader.Read();
-                        return Convert.ToInt32(reader["UserRole"]);
-                    }
-                }
+                textBox2.UseSystemPasswordChar = false;
             }
+            else 
+            {
+                textBox2.UseSystemPasswordChar = true;
+            }
+        }
 
-            return 0;
-        }*/
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

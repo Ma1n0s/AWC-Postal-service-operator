@@ -315,8 +315,6 @@ namespace Kyrsov {
             
             private global::System.Data.DataColumn columnpayment;
             
-            private global::System.Data.DataColumn columnstatus_archive;
-            
             private global::System.Data.DataColumn columnregion;
             
             private global::System.Data.DataColumn columnapartment;
@@ -326,6 +324,10 @@ namespace Kyrsov {
             private global::System.Data.DataColumn columnstreet;
             
             private global::System.Data.DataColumn columncity;
+            
+            private global::System.Data.DataColumn columndispatch_time;
+            
+            private global::System.Data.DataColumn columncombustion_time;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -506,14 +508,6 @@ namespace Kyrsov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn status_archiveColumn {
-                get {
-                    return this.columnstatus_archive;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn regionColumn {
                 get {
                     return this.columnregion;
@@ -549,6 +543,22 @@ namespace Kyrsov {
             public global::System.Data.DataColumn cityColumn {
                 get {
                     return this.columncity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn dispatch_timeColumn {
+                get {
+                    return this.columndispatch_time;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn combustion_timeColumn {
+                get {
+                    return this.columncombustion_time;
                 }
             }
             
@@ -597,9 +607,9 @@ namespace Kyrsov {
                         string fio_recipient, 
                         string phone_recipient, 
                         string address_recipient, 
-                        string length, 
-                        string width, 
-                        string height, 
+                        int length, 
+                        int width, 
+                        int height, 
                         string weight, 
                         string parcel_contents, 
                         decimal price, 
@@ -607,12 +617,13 @@ namespace Kyrsov {
                         string random_password, 
                         string type_of_departure, 
                         string payment, 
-                        string status_archive, 
                         string region, 
                         string apartment, 
                         string apartment_nubmer, 
                         string street, 
-                        string city) {
+                        string city, 
+                        System.DateTime dispatch_time, 
+                        System.DateTime combustion_time) {
                 ApplicationsRow rowApplicationsRow = ((ApplicationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -633,12 +644,13 @@ namespace Kyrsov {
                         random_password,
                         type_of_departure,
                         payment,
-                        status_archive,
                         region,
                         apartment,
                         apartment_nubmer,
                         street,
-                        city};
+                        city,
+                        dispatch_time,
+                        combustion_time};
                 rowApplicationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowApplicationsRow);
                 return rowApplicationsRow;
@@ -686,12 +698,13 @@ namespace Kyrsov {
                 this.columnrandom_password = base.Columns["random_password"];
                 this.columntype_of_departure = base.Columns["type_of_departure"];
                 this.columnpayment = base.Columns["payment"];
-                this.columnstatus_archive = base.Columns["status_archive"];
                 this.columnregion = base.Columns["region"];
                 this.columnapartment = base.Columns["apartment"];
                 this.columnapartment_nubmer = base.Columns["apartment_nubmer"];
                 this.columnstreet = base.Columns["street"];
                 this.columncity = base.Columns["city"];
+                this.columndispatch_time = base.Columns["dispatch_time"];
+                this.columncombustion_time = base.Columns["combustion_time"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -713,11 +726,11 @@ namespace Kyrsov {
                 base.Columns.Add(this.columnphone_recipient);
                 this.columnaddress_recipient = new global::System.Data.DataColumn("address_recipient", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnaddress_recipient);
-                this.columnlength = new global::System.Data.DataColumn("length", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnlength = new global::System.Data.DataColumn("length", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlength);
-                this.columnwidth = new global::System.Data.DataColumn("width", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnwidth = new global::System.Data.DataColumn("width", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnwidth);
-                this.columnheight = new global::System.Data.DataColumn("height", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnheight = new global::System.Data.DataColumn("height", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnheight);
                 this.columnweight = new global::System.Data.DataColumn("weight", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnweight);
@@ -733,8 +746,6 @@ namespace Kyrsov {
                 base.Columns.Add(this.columntype_of_departure);
                 this.columnpayment = new global::System.Data.DataColumn("payment", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpayment);
-                this.columnstatus_archive = new global::System.Data.DataColumn("status_archive", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstatus_archive);
                 this.columnregion = new global::System.Data.DataColumn("region", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnregion);
                 this.columnapartment = new global::System.Data.DataColumn("apartment", typeof(string), null, global::System.Data.MappingType.Element);
@@ -745,6 +756,10 @@ namespace Kyrsov {
                 base.Columns.Add(this.columnstreet);
                 this.columncity = new global::System.Data.DataColumn("city", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncity);
+                this.columndispatch_time = new global::System.Data.DataColumn("dispatch_time", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndispatch_time);
+                this.columncombustion_time = new global::System.Data.DataColumn("combustion_time", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncombustion_time);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -760,16 +775,12 @@ namespace Kyrsov {
                 this.columnfio_recipient.MaxLength = 50;
                 this.columnphone_recipient.MaxLength = 50;
                 this.columnaddress_recipient.MaxLength = 50;
-                this.columnlength.MaxLength = 50;
-                this.columnwidth.MaxLength = 50;
-                this.columnheight.MaxLength = 50;
                 this.columnweight.MaxLength = 50;
                 this.columnparcel_contents.MaxLength = 50;
                 this.columnstatus.MaxLength = 50;
                 this.columnrandom_password.MaxLength = 50;
                 this.columntype_of_departure.MaxLength = 50;
                 this.columnpayment.MaxLength = 50;
-                this.columnstatus_archive.MaxLength = 50;
                 this.columnregion.MaxLength = 50;
                 this.columnapartment.MaxLength = 50;
                 this.columnapartment_nubmer.MaxLength = 50;
@@ -1041,10 +1052,10 @@ namespace Kyrsov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string length {
+            public int length {
                 get {
                     try {
-                        return ((string)(this[this.tableApplications.lengthColumn]));
+                        return ((int)(this[this.tableApplications.lengthColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'length\' в таблице \'Applications\' равно DBNull.", e);
@@ -1057,10 +1068,10 @@ namespace Kyrsov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string width {
+            public int width {
                 get {
                     try {
-                        return ((string)(this[this.tableApplications.widthColumn]));
+                        return ((int)(this[this.tableApplications.widthColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'width\' в таблице \'Applications\' равно DBNull.", e);
@@ -1073,10 +1084,10 @@ namespace Kyrsov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string height {
+            public int height {
                 get {
                     try {
-                        return ((string)(this[this.tableApplications.heightColumn]));
+                        return ((int)(this[this.tableApplications.heightColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'height\' в таблице \'Applications\' равно DBNull.", e);
@@ -1201,22 +1212,6 @@ namespace Kyrsov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string status_archive {
-                get {
-                    try {
-                        return ((string)(this[this.tableApplications.status_archiveColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'status_archive\' в таблице \'Applications\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableApplications.status_archiveColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string region {
                 get {
                     try {
@@ -1292,6 +1287,38 @@ namespace Kyrsov {
                 }
                 set {
                     this[this.tableApplications.cityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime dispatch_time {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableApplications.dispatch_timeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'dispatch_time\' в таблице \'Applications\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableApplications.dispatch_timeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime combustion_time {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableApplications.combustion_timeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'combustion_time\' в таблице \'Applications\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableApplications.combustion_timeColumn] = value;
                 }
             }
             
@@ -1501,18 +1528,6 @@ namespace Kyrsov {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isstatus_archiveNull() {
-                return this.IsNull(this.tableApplications.status_archiveColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setstatus_archiveNull() {
-                this[this.tableApplications.status_archiveColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsregionNull() {
                 return this.IsNull(this.tableApplications.regionColumn);
             }
@@ -1569,6 +1584,30 @@ namespace Kyrsov {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetcityNull() {
                 this[this.tableApplications.cityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isdispatch_timeNull() {
+                return this.IsNull(this.tableApplications.dispatch_timeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setdispatch_timeNull() {
+                this[this.tableApplications.dispatch_timeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Iscombustion_timeNull() {
+                return this.IsNull(this.tableApplications.combustion_timeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setcombustion_timeNull() {
+                this[this.tableApplications.combustion_timeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1749,12 +1788,13 @@ namespace Kyrsov.TheMailOperatorARMDataSet3TableAdapters {
             tableMapping.ColumnMappings.Add("random_password", "random_password");
             tableMapping.ColumnMappings.Add("type_of_departure", "type_of_departure");
             tableMapping.ColumnMappings.Add("payment", "payment");
-            tableMapping.ColumnMappings.Add("status_archive", "status_archive");
             tableMapping.ColumnMappings.Add("region", "region");
             tableMapping.ColumnMappings.Add("apartment", "apartment");
             tableMapping.ColumnMappings.Add("apartment_nubmer", "apartment_nubmer");
             tableMapping.ColumnMappings.Add("street", "street");
             tableMapping.ColumnMappings.Add("city", "city");
+            tableMapping.ColumnMappings.Add("dispatch_time", "dispatch_time");
+            tableMapping.ColumnMappings.Add("combustion_time", "combustion_time");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -1780,14 +1820,15 @@ namespace Kyrsov.TheMailOperatorARMDataSet3TableAdapters {
                 "OR ([random_password] = @Original_random_password)) AND ((@IsNull_type_of_depart" +
                 "ure = 1 AND [type_of_departure] IS NULL) OR ([type_of_departure] = @Original_typ" +
                 "e_of_departure)) AND ((@IsNull_payment = 1 AND [payment] IS NULL) OR ([payment] " +
-                "= @Original_payment)) AND ((@IsNull_status_archive = 1 AND [status_archive] IS N" +
-                "ULL) OR ([status_archive] = @Original_status_archive)) AND ((@IsNull_region = 1 " +
-                "AND [region] IS NULL) OR ([region] = @Original_region)) AND ((@IsNull_apartment " +
-                "= 1 AND [apartment] IS NULL) OR ([apartment] = @Original_apartment)) AND ((@IsNu" +
-                "ll_apartment_nubmer = 1 AND [apartment_nubmer] IS NULL) OR ([apartment_nubmer] =" +
-                " @Original_apartment_nubmer)) AND ((@IsNull_street = 1 AND [street] IS NULL) OR " +
-                "([street] = @Original_street)) AND ((@IsNull_city = 1 AND [city] IS NULL) OR ([c" +
-                "ity] = @Original_city)))";
+                "= @Original_payment)) AND ((@IsNull_region = 1 AND [region] IS NULL) OR ([region" +
+                "] = @Original_region)) AND ((@IsNull_apartment = 1 AND [apartment] IS NULL) OR (" +
+                "[apartment] = @Original_apartment)) AND ((@IsNull_apartment_nubmer = 1 AND [apar" +
+                "tment_nubmer] IS NULL) OR ([apartment_nubmer] = @Original_apartment_nubmer)) AND" +
+                " ((@IsNull_street = 1 AND [street] IS NULL) OR ([street] = @Original_street)) AN" +
+                "D ((@IsNull_city = 1 AND [city] IS NULL) OR ([city] = @Original_city)) AND ((@Is" +
+                "Null_dispatch_time = 1 AND [dispatch_time] IS NULL) OR ([dispatch_time] = @Origi" +
+                "nal_dispatch_time)) AND ((@IsNull_combustion_time = 1 AND [combustion_time] IS N" +
+                "ULL) OR ([combustion_time] = @Original_combustion_time)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_post_office_address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "post_office_address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1805,11 +1846,11 @@ namespace Kyrsov.TheMailOperatorARMDataSet3TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_address_recipient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address_recipient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address_recipient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address_recipient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_length", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_length", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_length", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_width", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "width", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_width", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "width", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_width", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "width", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_height", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "height", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_height", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "height", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_height", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "height", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_parcel_contents", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "parcel_contents", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1824,8 +1865,6 @@ namespace Kyrsov.TheMailOperatorARMDataSet3TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type_of_departure", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type_of_departure", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_payment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "payment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_payment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "payment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_status_archive", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status_archive", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status_archive", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status_archive", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_region", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "region", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_region", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "region", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_apartment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apartment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1836,10 +1875,14 @@ namespace Kyrsov.TheMailOperatorARMDataSet3TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_street", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "street", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_city", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_city", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dispatch_time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dispatch_time", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dispatch_time", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dispatch_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_combustion_time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "combustion_time", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_combustion_time", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "combustion_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Applications] ([post_office_address], [fio_sender], [phone_sender], [address_sender], [fio_recipient], [phone_recipient], [address_recipient], [length], [width], [height], [weight], [parcel_contents], [price], [status], [random_password], [type_of_departure], [payment], [status_archive], [region], [apartment], [apartment_nubmer], [street], [city]) VALUES (@post_office_address, @fio_sender, @phone_sender, @address_sender, @fio_recipient, @phone_recipient, @address_recipient, @length, @width, @height, @weight, @parcel_contents, @price, @status, @random_password, @type_of_departure, @payment, @status_archive, @region, @apartment, @apartment_nubmer, @street, @city);
-SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_recipient, phone_recipient, address_recipient, length, width, height, weight, parcel_contents, price, status, random_password, type_of_departure, payment, status_archive, region, apartment, apartment_nubmer, street, city FROM Applications WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Applications] ([post_office_address], [fio_sender], [phone_sender], [address_sender], [fio_recipient], [phone_recipient], [address_recipient], [length], [width], [height], [weight], [parcel_contents], [price], [status], [random_password], [type_of_departure], [payment], [region], [apartment], [apartment_nubmer], [street], [city], [dispatch_time], [combustion_time]) VALUES (@post_office_address, @fio_sender, @phone_sender, @address_sender, @fio_recipient, @phone_recipient, @address_recipient, @length, @width, @height, @weight, @parcel_contents, @price, @status, @random_password, @type_of_departure, @payment, @region, @apartment, @apartment_nubmer, @street, @city, @dispatch_time, @combustion_time);
+SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_recipient, phone_recipient, address_recipient, length, width, height, weight, parcel_contents, price, status, random_password, type_of_departure, payment, region, apartment, apartment_nubmer, street, city, dispatch_time, combustion_time FROM Applications WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@post_office_address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "post_office_address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fio_sender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fio_sender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1848,9 +1891,9 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fio_recipient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fio_recipient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone_recipient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone_recipient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address_recipient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address_recipient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@length", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@width", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "width", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@height", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "height", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@length", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@width", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "width", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@height", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "height", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@parcel_contents", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "parcel_contents", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1858,12 +1901,13 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@random_password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "random_password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type_of_departure", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type_of_departure", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "payment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status_archive", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status_archive", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@region", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "region", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apartment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apartment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apartment_nubmer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apartment_nubmer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@street", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "street", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@city", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dispatch_time", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dispatch_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@combustion_time", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "combustion_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Applications] SET [post_office_address] = @post_office_address, [fi" +
@@ -1872,42 +1916,44 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                 "ent, [address_recipient] = @address_recipient, [length] = @length, [width] = @wi" +
                 "dth, [height] = @height, [weight] = @weight, [parcel_contents] = @parcel_content" +
                 "s, [price] = @price, [status] = @status, [random_password] = @random_password, [" +
-                "type_of_departure] = @type_of_departure, [payment] = @payment, [status_archive] " +
-                "= @status_archive, [region] = @region, [apartment] = @apartment, [apartment_nubm" +
-                "er] = @apartment_nubmer, [street] = @street, [city] = @city WHERE (([id] = @Orig" +
-                "inal_id) AND ((@IsNull_post_office_address = 1 AND [post_office_address] IS NULL" +
-                ") OR ([post_office_address] = @Original_post_office_address)) AND ((@IsNull_fio_" +
-                "sender = 1 AND [fio_sender] IS NULL) OR ([fio_sender] = @Original_fio_sender)) A" +
-                "ND ((@IsNull_phone_sender = 1 AND [phone_sender] IS NULL) OR ([phone_sender] = @" +
-                "Original_phone_sender)) AND ((@IsNull_address_sender = 1 AND [address_sender] IS" +
-                " NULL) OR ([address_sender] = @Original_address_sender)) AND ((@IsNull_fio_recip" +
-                "ient = 1 AND [fio_recipient] IS NULL) OR ([fio_recipient] = @Original_fio_recipi" +
-                "ent)) AND ((@IsNull_phone_recipient = 1 AND [phone_recipient] IS NULL) OR ([phon" +
-                "e_recipient] = @Original_phone_recipient)) AND ((@IsNull_address_recipient = 1 A" +
-                "ND [address_recipient] IS NULL) OR ([address_recipient] = @Original_address_reci" +
-                "pient)) AND ((@IsNull_length = 1 AND [length] IS NULL) OR ([length] = @Original_" +
-                "length)) AND ((@IsNull_width = 1 AND [width] IS NULL) OR ([width] = @Original_wi" +
-                "dth)) AND ((@IsNull_height = 1 AND [height] IS NULL) OR ([height] = @Original_he" +
-                "ight)) AND ((@IsNull_weight = 1 AND [weight] IS NULL) OR ([weight] = @Original_w" +
-                "eight)) AND ((@IsNull_parcel_contents = 1 AND [parcel_contents] IS NULL) OR ([pa" +
-                "rcel_contents] = @Original_parcel_contents)) AND ((@IsNull_price = 1 AND [price]" +
-                " IS NULL) OR ([price] = @Original_price)) AND ((@IsNull_status = 1 AND [status] " +
-                "IS NULL) OR ([status] = @Original_status)) AND ((@IsNull_random_password = 1 AND" +
-                " [random_password] IS NULL) OR ([random_password] = @Original_random_password)) " +
-                "AND ((@IsNull_type_of_departure = 1 AND [type_of_departure] IS NULL) OR ([type_o" +
-                "f_departure] = @Original_type_of_departure)) AND ((@IsNull_payment = 1 AND [paym" +
-                "ent] IS NULL) OR ([payment] = @Original_payment)) AND ((@IsNull_status_archive =" +
-                " 1 AND [status_archive] IS NULL) OR ([status_archive] = @Original_status_archive" +
-                ")) AND ((@IsNull_region = 1 AND [region] IS NULL) OR ([region] = @Original_regio" +
-                "n)) AND ((@IsNull_apartment = 1 AND [apartment] IS NULL) OR ([apartment] = @Orig" +
-                "inal_apartment)) AND ((@IsNull_apartment_nubmer = 1 AND [apartment_nubmer] IS NU" +
-                "LL) OR ([apartment_nubmer] = @Original_apartment_nubmer)) AND ((@IsNull_street =" +
-                " 1 AND [street] IS NULL) OR ([street] = @Original_street)) AND ((@IsNull_city = " +
-                "1 AND [city] IS NULL) OR ([city] = @Original_city)));\r\nSELECT id, post_office_ad" +
-                "dress, fio_sender, phone_sender, address_sender, fio_recipient, phone_recipient," +
-                " address_recipient, length, width, height, weight, parcel_contents, price, statu" +
-                "s, random_password, type_of_departure, payment, status_archive, region, apartmen" +
-                "t, apartment_nubmer, street, city FROM Applications WHERE (id = @id)";
+                "type_of_departure] = @type_of_departure, [payment] = @payment, [region] = @regio" +
+                "n, [apartment] = @apartment, [apartment_nubmer] = @apartment_nubmer, [street] = " +
+                "@street, [city] = @city, [dispatch_time] = @dispatch_time, [combustion_time] = @" +
+                "combustion_time WHERE (([id] = @Original_id) AND ((@IsNull_post_office_address =" +
+                " 1 AND [post_office_address] IS NULL) OR ([post_office_address] = @Original_post" +
+                "_office_address)) AND ((@IsNull_fio_sender = 1 AND [fio_sender] IS NULL) OR ([fi" +
+                "o_sender] = @Original_fio_sender)) AND ((@IsNull_phone_sender = 1 AND [phone_sen" +
+                "der] IS NULL) OR ([phone_sender] = @Original_phone_sender)) AND ((@IsNull_addres" +
+                "s_sender = 1 AND [address_sender] IS NULL) OR ([address_sender] = @Original_addr" +
+                "ess_sender)) AND ((@IsNull_fio_recipient = 1 AND [fio_recipient] IS NULL) OR ([f" +
+                "io_recipient] = @Original_fio_recipient)) AND ((@IsNull_phone_recipient = 1 AND " +
+                "[phone_recipient] IS NULL) OR ([phone_recipient] = @Original_phone_recipient)) A" +
+                "ND ((@IsNull_address_recipient = 1 AND [address_recipient] IS NULL) OR ([address" +
+                "_recipient] = @Original_address_recipient)) AND ((@IsNull_length = 1 AND [length" +
+                "] IS NULL) OR ([length] = @Original_length)) AND ((@IsNull_width = 1 AND [width]" +
+                " IS NULL) OR ([width] = @Original_width)) AND ((@IsNull_height = 1 AND [height] " +
+                "IS NULL) OR ([height] = @Original_height)) AND ((@IsNull_weight = 1 AND [weight]" +
+                " IS NULL) OR ([weight] = @Original_weight)) AND ((@IsNull_parcel_contents = 1 AN" +
+                "D [parcel_contents] IS NULL) OR ([parcel_contents] = @Original_parcel_contents))" +
+                " AND ((@IsNull_price = 1 AND [price] IS NULL) OR ([price] = @Original_price)) AN" +
+                "D ((@IsNull_status = 1 AND [status] IS NULL) OR ([status] = @Original_status)) A" +
+                "ND ((@IsNull_random_password = 1 AND [random_password] IS NULL) OR ([random_pass" +
+                "word] = @Original_random_password)) AND ((@IsNull_type_of_departure = 1 AND [typ" +
+                "e_of_departure] IS NULL) OR ([type_of_departure] = @Original_type_of_departure))" +
+                " AND ((@IsNull_payment = 1 AND [payment] IS NULL) OR ([payment] = @Original_paym" +
+                "ent)) AND ((@IsNull_region = 1 AND [region] IS NULL) OR ([region] = @Original_re" +
+                "gion)) AND ((@IsNull_apartment = 1 AND [apartment] IS NULL) OR ([apartment] = @O" +
+                "riginal_apartment)) AND ((@IsNull_apartment_nubmer = 1 AND [apartment_nubmer] IS" +
+                " NULL) OR ([apartment_nubmer] = @Original_apartment_nubmer)) AND ((@IsNull_stree" +
+                "t = 1 AND [street] IS NULL) OR ([street] = @Original_street)) AND ((@IsNull_city" +
+                " = 1 AND [city] IS NULL) OR ([city] = @Original_city)) AND ((@IsNull_dispatch_ti" +
+                "me = 1 AND [dispatch_time] IS NULL) OR ([dispatch_time] = @Original_dispatch_tim" +
+                "e)) AND ((@IsNull_combustion_time = 1 AND [combustion_time] IS NULL) OR ([combus" +
+                "tion_time] = @Original_combustion_time)));\r\nSELECT id, post_office_address, fio_" +
+                "sender, phone_sender, address_sender, fio_recipient, phone_recipient, address_re" +
+                "cipient, length, width, height, weight, parcel_contents, price, status, random_p" +
+                "assword, type_of_departure, payment, region, apartment, apartment_nubmer, street" +
+                ", city, dispatch_time, combustion_time FROM Applications WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@post_office_address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "post_office_address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fio_sender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fio_sender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1916,9 +1962,9 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fio_recipient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fio_recipient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone_recipient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone_recipient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address_recipient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address_recipient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@length", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@width", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "width", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@height", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "height", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@length", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@width", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "width", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@height", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "height", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@parcel_contents", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "parcel_contents", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1926,12 +1972,13 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@random_password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "random_password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type_of_departure", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type_of_departure", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "payment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status_archive", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status_archive", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@region", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "region", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apartment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apartment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apartment_nubmer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apartment_nubmer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@street", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "street", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@city", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dispatch_time", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dispatch_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@combustion_time", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "combustion_time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_post_office_address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "post_office_address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_post_office_address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "post_office_address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1948,11 +1995,11 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_address_recipient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address_recipient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address_recipient", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address_recipient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_length", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_length", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_length", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_width", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "width", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_width", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "width", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_width", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "width", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_height", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "height", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_height", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "height", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_height", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "height", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_parcel_contents", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "parcel_contents", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1967,8 +2014,6 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type_of_departure", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type_of_departure", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_payment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "payment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_payment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "payment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_status_archive", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status_archive", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status_archive", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status_archive", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_region", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "region", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_region", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "region", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_apartment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "apartment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1979,6 +2024,10 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_street", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "street", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_city", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_city", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "city", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dispatch_time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dispatch_time", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dispatch_time", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dispatch_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_combustion_time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "combustion_time", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_combustion_time", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "combustion_time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1995,7 +2044,7 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_recipient, phone_recipient, address_recipient, length, width, height, weight, parcel_contents, price, status, random_password, type_of_departure, payment, status_archive, region, apartment, apartment_nubmer, street, city FROM dbo.Applications";
+            this._commandCollection[0].CommandText = @"SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_recipient, phone_recipient, address_recipient, length, width, height, weight, parcel_contents, price, status, random_password, type_of_departure, payment, region, apartment, apartment_nubmer, street, city, dispatch_time, combustion_time FROM dbo.Applications";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2065,9 +2114,9 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string Original_fio_recipient, 
                     string Original_phone_recipient, 
                     string Original_address_recipient, 
-                    string Original_length, 
-                    string Original_width, 
-                    string Original_height, 
+                    global::System.Nullable<int> Original_length, 
+                    global::System.Nullable<int> Original_width, 
+                    global::System.Nullable<int> Original_height, 
                     string Original_weight, 
                     string Original_parcel_contents, 
                     global::System.Nullable<decimal> Original_price, 
@@ -2075,12 +2124,13 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string Original_random_password, 
                     string Original_type_of_departure, 
                     string Original_payment, 
-                    string Original_status_archive, 
                     string Original_region, 
                     string Original_apartment, 
                     string Original_apartment_nubmer, 
                     string Original_street, 
-                    string Original_city) {
+                    string Original_city, 
+                    global::System.Nullable<global::System.DateTime> Original_dispatch_time, 
+                    global::System.Nullable<global::System.DateTime> Original_combustion_time) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_post_office_address == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -2138,29 +2188,29 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_address_recipient));
             }
-            if ((Original_length == null)) {
+            if ((Original_length.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_length.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_length));
+            if ((Original_width.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_width.Value));
             }
-            if ((Original_width == null)) {
+            else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_width));
+            if ((Original_height.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_height.Value));
             }
-            if ((Original_height == null)) {
+            else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_height));
             }
             if ((Original_weight == null)) {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
@@ -2218,53 +2268,61 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                 this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[34].Value = ((string)(Original_payment));
             }
-            if ((Original_status_archive == null)) {
+            if ((Original_region == null)) {
                 this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((string)(Original_status_archive));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((string)(Original_region));
             }
-            if ((Original_region == null)) {
+            if ((Original_apartment == null)) {
                 this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[38].Value = ((string)(Original_region));
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((string)(Original_apartment));
             }
-            if ((Original_apartment == null)) {
+            if ((Original_apartment_nubmer == null)) {
                 this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[40].Value = ((string)(Original_apartment));
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((string)(Original_apartment_nubmer));
             }
-            if ((Original_apartment_nubmer == null)) {
+            if ((Original_street == null)) {
                 this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[42].Value = ((string)(Original_apartment_nubmer));
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((string)(Original_street));
             }
-            if ((Original_street == null)) {
+            if ((Original_city == null)) {
                 this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[44].Value = ((string)(Original_street));
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((string)(Original_city));
             }
-            if ((Original_city == null)) {
+            if ((Original_dispatch_time.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((System.DateTime)(Original_dispatch_time.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
+            if ((Original_combustion_time.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((System.DateTime)(Original_combustion_time.Value));
+            }
             else {
-                this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[46].Value = ((string)(Original_city));
+                this.Adapter.DeleteCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2294,9 +2352,9 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string fio_recipient, 
                     string phone_recipient, 
                     string address_recipient, 
-                    string length, 
-                    string width, 
-                    string height, 
+                    global::System.Nullable<int> length, 
+                    global::System.Nullable<int> width, 
+                    global::System.Nullable<int> height, 
                     string weight, 
                     string parcel_contents, 
                     global::System.Nullable<decimal> price, 
@@ -2304,12 +2362,13 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string random_password, 
                     string type_of_departure, 
                     string payment, 
-                    string status_archive, 
                     string region, 
                     string apartment, 
                     string apartment_nubmer, 
                     string street, 
-                    string city) {
+                    string city, 
+                    global::System.Nullable<global::System.DateTime> dispatch_time, 
+                    global::System.Nullable<global::System.DateTime> combustion_time) {
             if ((post_office_address == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2352,23 +2411,23 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(address_recipient));
             }
-            if ((length == null)) {
+            if ((length.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(length.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(length));
+            if ((width.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(width.Value));
             }
-            if ((width == null)) {
+            else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(width));
+            if ((height.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(height.Value));
             }
-            if ((height == null)) {
+            else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(height));
             }
             if ((weight == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
@@ -2412,41 +2471,47 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             else {
                 this.Adapter.InsertCommand.Parameters[16].Value = ((string)(payment));
             }
-            if ((status_archive == null)) {
+            if ((region == null)) {
                 this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(status_archive));
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(region));
             }
-            if ((region == null)) {
+            if ((apartment == null)) {
                 this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(region));
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(apartment));
             }
-            if ((apartment == null)) {
+            if ((apartment_nubmer == null)) {
                 this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(apartment));
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(apartment_nubmer));
             }
-            if ((apartment_nubmer == null)) {
+            if ((street == null)) {
                 this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(apartment_nubmer));
+                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(street));
             }
-            if ((street == null)) {
+            if ((city == null)) {
                 this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(street));
+                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(city));
             }
-            if ((city == null)) {
-                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            if ((dispatch_time.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((System.DateTime)(dispatch_time.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(city));
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((combustion_time.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((System.DateTime)(combustion_time.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2476,9 +2541,9 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string fio_recipient, 
                     string phone_recipient, 
                     string address_recipient, 
-                    string length, 
-                    string width, 
-                    string height, 
+                    global::System.Nullable<int> length, 
+                    global::System.Nullable<int> width, 
+                    global::System.Nullable<int> height, 
                     string weight, 
                     string parcel_contents, 
                     global::System.Nullable<decimal> price, 
@@ -2486,12 +2551,13 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string random_password, 
                     string type_of_departure, 
                     string payment, 
-                    string status_archive, 
                     string region, 
                     string apartment, 
                     string apartment_nubmer, 
                     string street, 
                     string city, 
+                    global::System.Nullable<global::System.DateTime> dispatch_time, 
+                    global::System.Nullable<global::System.DateTime> combustion_time, 
                     int Original_id, 
                     string Original_post_office_address, 
                     string Original_fio_sender, 
@@ -2500,9 +2566,9 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string Original_fio_recipient, 
                     string Original_phone_recipient, 
                     string Original_address_recipient, 
-                    string Original_length, 
-                    string Original_width, 
-                    string Original_height, 
+                    global::System.Nullable<int> Original_length, 
+                    global::System.Nullable<int> Original_width, 
+                    global::System.Nullable<int> Original_height, 
                     string Original_weight, 
                     string Original_parcel_contents, 
                     global::System.Nullable<decimal> Original_price, 
@@ -2510,12 +2576,13 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string Original_random_password, 
                     string Original_type_of_departure, 
                     string Original_payment, 
-                    string Original_status_archive, 
                     string Original_region, 
                     string Original_apartment, 
                     string Original_apartment_nubmer, 
                     string Original_street, 
                     string Original_city, 
+                    global::System.Nullable<global::System.DateTime> Original_dispatch_time, 
+                    global::System.Nullable<global::System.DateTime> Original_combustion_time, 
                     int id) {
             if ((post_office_address == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -2559,23 +2626,23 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(address_recipient));
             }
-            if ((length == null)) {
+            if ((length.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(length.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(length));
+            if ((width.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(width.Value));
             }
-            if ((width == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(width));
+            if ((height.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(height.Value));
             }
-            if ((height == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(height));
             }
             if ((weight == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
@@ -2619,228 +2686,242 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(payment));
             }
-            if ((status_archive == null)) {
+            if ((region == null)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(status_archive));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(region));
             }
-            if ((region == null)) {
+            if ((apartment == null)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(region));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(apartment));
             }
-            if ((apartment == null)) {
+            if ((apartment_nubmer == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(apartment));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(apartment_nubmer));
             }
-            if ((apartment_nubmer == null)) {
+            if ((street == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(apartment_nubmer));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(street));
             }
-            if ((street == null)) {
+            if ((city == null)) {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(street));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(city));
             }
-            if ((city == null)) {
+            if ((dispatch_time.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(dispatch_time.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(city));
+            if ((combustion_time.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(combustion_time.Value));
             }
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_id));
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_id));
             if ((Original_post_office_address == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_post_office_address));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_post_office_address));
             }
             if ((Original_fio_sender == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_fio_sender));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_fio_sender));
             }
             if ((Original_phone_sender == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_phone_sender));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_phone_sender));
             }
             if ((Original_address_sender == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_address_sender));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_address_sender));
             }
             if ((Original_fio_recipient == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_fio_recipient));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_fio_recipient));
             }
             if ((Original_phone_recipient == null)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_phone_recipient));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_phone_recipient));
             }
             if ((Original_address_recipient == null)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_address_recipient));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_address_recipient));
             }
-            if ((Original_length == null)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_length));
-            }
-            if ((Original_width == null)) {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            if ((Original_length.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_length.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_width));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
-            if ((Original_height == null)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            if ((Original_width.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((int)(Original_width.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_height));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            if ((Original_height.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_height.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
             if ((Original_weight == null)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_weight));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_weight));
             }
             if ((Original_parcel_contents == null)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_parcel_contents));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_parcel_contents));
             }
             if ((Original_price.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((decimal)(Original_price.Value));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((decimal)(Original_price.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
             }
             if ((Original_status == null)) {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_status));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_status));
             }
             if ((Original_random_password == null)) {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_random_password));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_random_password));
             }
             if ((Original_type_of_departure == null)) {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_type_of_departure));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_type_of_departure));
             }
             if ((Original_payment == null)) {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_payment));
-            }
-            if ((Original_status_archive == null)) {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((string)(Original_status_archive));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((string)(Original_payment));
             }
             if ((Original_region == null)) {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((string)(Original_region));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((string)(Original_region));
             }
             if ((Original_apartment == null)) {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((string)(Original_apartment));
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((string)(Original_apartment));
             }
             if ((Original_apartment_nubmer == null)) {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((string)(Original_apartment_nubmer));
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(Original_apartment_nubmer));
             }
             if ((Original_street == null)) {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((string)(Original_street));
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((string)(Original_street));
             }
             if ((Original_city == null)) {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(Original_city));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(Original_city));
             }
-            this.Adapter.UpdateCommand.Parameters[70].Value = ((int)(id));
+            if ((Original_dispatch_time.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((System.DateTime)(Original_dispatch_time.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
+            }
+            if ((Original_combustion_time.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((System.DateTime)(Original_combustion_time.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[73].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2869,9 +2950,9 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string fio_recipient, 
                     string phone_recipient, 
                     string address_recipient, 
-                    string length, 
-                    string width, 
-                    string height, 
+                    global::System.Nullable<int> length, 
+                    global::System.Nullable<int> width, 
+                    global::System.Nullable<int> height, 
                     string weight, 
                     string parcel_contents, 
                     global::System.Nullable<decimal> price, 
@@ -2879,12 +2960,13 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string random_password, 
                     string type_of_departure, 
                     string payment, 
-                    string status_archive, 
                     string region, 
                     string apartment, 
                     string apartment_nubmer, 
                     string street, 
                     string city, 
+                    global::System.Nullable<global::System.DateTime> dispatch_time, 
+                    global::System.Nullable<global::System.DateTime> combustion_time, 
                     int Original_id, 
                     string Original_post_office_address, 
                     string Original_fio_sender, 
@@ -2893,9 +2975,9 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string Original_fio_recipient, 
                     string Original_phone_recipient, 
                     string Original_address_recipient, 
-                    string Original_length, 
-                    string Original_width, 
-                    string Original_height, 
+                    global::System.Nullable<int> Original_length, 
+                    global::System.Nullable<int> Original_width, 
+                    global::System.Nullable<int> Original_height, 
                     string Original_weight, 
                     string Original_parcel_contents, 
                     global::System.Nullable<decimal> Original_price, 
@@ -2903,13 +2985,14 @@ SELECT id, post_office_address, fio_sender, phone_sender, address_sender, fio_re
                     string Original_random_password, 
                     string Original_type_of_departure, 
                     string Original_payment, 
-                    string Original_status_archive, 
                     string Original_region, 
                     string Original_apartment, 
                     string Original_apartment_nubmer, 
                     string Original_street, 
-                    string Original_city) {
-            return this.Update(post_office_address, fio_sender, phone_sender, address_sender, fio_recipient, phone_recipient, address_recipient, length, width, height, weight, parcel_contents, price, status, random_password, type_of_departure, payment, status_archive, region, apartment, apartment_nubmer, street, city, Original_id, Original_post_office_address, Original_fio_sender, Original_phone_sender, Original_address_sender, Original_fio_recipient, Original_phone_recipient, Original_address_recipient, Original_length, Original_width, Original_height, Original_weight, Original_parcel_contents, Original_price, Original_status, Original_random_password, Original_type_of_departure, Original_payment, Original_status_archive, Original_region, Original_apartment, Original_apartment_nubmer, Original_street, Original_city, Original_id);
+                    string Original_city, 
+                    global::System.Nullable<global::System.DateTime> Original_dispatch_time, 
+                    global::System.Nullable<global::System.DateTime> Original_combustion_time) {
+            return this.Update(post_office_address, fio_sender, phone_sender, address_sender, fio_recipient, phone_recipient, address_recipient, length, width, height, weight, parcel_contents, price, status, random_password, type_of_departure, payment, region, apartment, apartment_nubmer, street, city, dispatch_time, combustion_time, Original_id, Original_post_office_address, Original_fio_sender, Original_phone_sender, Original_address_sender, Original_fio_recipient, Original_phone_recipient, Original_address_recipient, Original_length, Original_width, Original_height, Original_weight, Original_parcel_contents, Original_price, Original_status, Original_random_password, Original_type_of_departure, Original_payment, Original_region, Original_apartment, Original_apartment_nubmer, Original_street, Original_city, Original_dispatch_time, Original_combustion_time, Original_id);
         }
     }
     

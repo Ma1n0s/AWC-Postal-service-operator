@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Kyrsov
 {
     public partial class FormMain : Form
     {
-        private string commandText = "SELECT * From Employs Where login = @login AND password = @password";
-        private string commandText2 = "SELECT * From PostMail Where login = @login AND password = @password";
         private string connectionString = @"Data Source=DESKTOP-OK9RI9B\MSSQLSERVER1;Initial Catalog='TheMailOperatorARM';Integrated Security=True";
 
         public FormMain()
@@ -36,7 +27,7 @@ namespace Kyrsov
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Applications newForm = new Applications();
+            Applica newForm = new Applica();
             newForm.Show();
         }
 
@@ -48,8 +39,7 @@ namespace Kyrsov
 
         private void label7_Click(object sender, EventArgs e)
         {
-            Applications newForm = new Applications();
-            newForm.Show();
+
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -65,12 +55,13 @@ namespace Kyrsov
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
+
             panel2.BackColor = Color.FromArgb(39, 39, 58);
         }
 
         private void label12_Click(object sender, EventArgs e)
         {
-            /*select COUNT(id) from "" WHERE...*/
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -96,7 +87,22 @@ namespace Kyrsov
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            FormMain1();
+        }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+        }
+        public void FormMain1()
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            About_the_program newForm = new About_the_program();
+            newForm.Show();
         }
     }
 }

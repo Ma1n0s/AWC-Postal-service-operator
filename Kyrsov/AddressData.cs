@@ -12,7 +12,7 @@ namespace Kyrsov
 {
     public partial class AddressData : Form
     {
-        public static Applications instance;
+        public static Applica instance;
         public AddressData()
         {
             InitializeComponent();
@@ -26,19 +26,20 @@ namespace Kyrsov
         private void button1_Click(object sender, EventArgs e)
         {
             AddressPost.region = comboBox1.Text;
-            AddressPost.apartment = comboBox3.Text;
-            AddressPost.apartment_nubmer = comboBox4.Text;
-            AddressPost.street = textBox2.Text;
-            AddressPost.city = textBox3.Text;
-            AddressPost.post_office_address = comboBox2.Text;
+            AddressPost.apartment = comboBox6.Text;
+            AddressPost.apartment_nubmer = comboBox5.Text;
+            AddressPost.street = comboBox4.Text;
+            AddressPost.city = comboBox3.Text;
+            AddressPost.post_office_address = textBox1.Text;
 
             this.Close();
         }
 
         private void AddressData_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorARMDataSet11.Applications". При необходимости она может быть перемещена или удалена.
-            this.applicationsTableAdapter2.Fill(this.theMailOperatorARMDataSet11.Applications);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorARMDataSet3.Applications". При необходимости она может быть перемещена или удалена.
+            this.applicationsTableAdapter.Fill(this.theMailOperatorARMDataSet3.Applications);
+
 
 
         }
