@@ -63,6 +63,16 @@ namespace Kyrsov.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bookmark {
+            get {
+                object obj = ResourceManager.GetObject("Bookmark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Box {
             get {
                 object obj = ResourceManager.GetObject("Box", resourceCulture);
@@ -166,6 +176,16 @@ namespace Kyrsov.Properties {
         internal static System.Drawing.Bitmap mail_email_message_electronic_online_web_icon_icons_com_59986 {
             get {
                 object obj = ResourceManager.GetObject("mail_email_message_electronic_online_web_icon-icons.com_59986", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Menu {
+            get {
+                object obj = ResourceManager.GetObject("Menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

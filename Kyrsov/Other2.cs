@@ -132,9 +132,6 @@ namespace Kyrsov
             application.Visible = true;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            panel1.BackColor = Color.FromArgb(51, 51, 76);
-        }
+
     }
 }

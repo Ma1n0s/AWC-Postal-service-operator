@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace Kyrsov
@@ -20,7 +21,7 @@ namespace Kyrsov
         private bool flag = false;
         private void button1_Click(object sender, EventArgs e)
         {
-            string login = this.textBox1.Text;
+            string login = user.UserName = this.textBox1.Text;
             string password = this.textBox2.Text;
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();

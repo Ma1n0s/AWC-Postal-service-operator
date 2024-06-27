@@ -88,26 +88,44 @@ namespace Kyrsov
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string fio = textBox1.Text;
-            string login = textBox2.Text;
-            string password = textBox3.Text;
-            string role = listBox1.Text;
+            string sqlCountAdmins = "SELECT COUNT(*) FROM dbo.Employs WHERE role = 'admin'";
+            int countAdmins = 0;
 
-            string sqlExpression = "UPDATE dbo.Employs SET fio = @fio,login = @login,password = @password, role = @role WHERE id = @id";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand countCommand = new SqlCommand(sqlCountAdmins, conn);
+                countAdmins = (int)countCommand.ExecuteScalar();
+            }
 
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand myCommand = conn.CreateCommand();
+            if (countAdmins == 1 && role == "admin")
+            {
+                MessageBox.Show("Вы не можете изменить свою роль, так как вы единственный администратор.");
+            }
+            else
+            {
+                string fio = textBox1.Text;
+                string login = textBox2.Text;
+                string password = textBox3.Text;
+                string role = listBox1.Text;
 
-            myCommand.CommandText = sqlExpression;
+                string sqlExpression = "UPDATE dbo.Employs SET fio = @fio, login = @login, password = @password, role = @role WHERE id = @id";
 
-            myCommand.Parameters.Add("@fio", SqlDbType.VarChar).Value = fio;
-            myCommand.Parameters.Add("@login", SqlDbType.VarChar).Value = login;
-            myCommand.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
-            myCommand.Parameters.Add("@role", SqlDbType.VarChar).Value = role;
-            myCommand.Parameters.Add("@id", SqlDbType.Int).Value = selected;
-            myCommand.ExecuteNonQuery();
-            conn.Close();
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand myCommand = conn.CreateCommand();
+
+                    myCommand.CommandText = sqlExpression;
+
+                    myCommand.Parameters.Add("@fio", SqlDbType.VarChar).Value = fio;
+                    myCommand.Parameters.Add("@login", SqlDbType.VarChar).Value = login;
+                    myCommand.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+                    myCommand.Parameters.Add("@role", SqlDbType.VarChar).Value = role;
+                    myCommand.Parameters.Add("@id", SqlDbType.Int).Value = selected;
+                    myCommand.ExecuteNonQuery();
+                }
+            }
         }
 
 
@@ -128,6 +146,7 @@ namespace Kyrsov
 
         private void Employee2_Load(object sender, EventArgs e)
         {
+
             // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorARMDataSet1.Employs". При необходимости она может быть перемещена или удалена.
             this.employsTableAdapter.Fill(this.theMailOperatorARMDataSet1.Employs);
 
@@ -154,7 +173,39 @@ namespace Kyrsov
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(51, 51, 76);
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "theMailOperatorARMDataSet1.Employs". При необходимости она может быть перемещена или удалена.
+            this.employsTableAdapter.Fill(this.theMailOperatorARMDataSet1.Employs);
+        }
+
+        private void button_search_Click(object sender, EventArgs e)
+        {
+            string searchValue = button_search.Text;
+            string query = "SELECT * FROM dbo.Employs WHERE id LIKE @searchValue OR fio LIKE @searchValue OR login LIKE @searchValue OR password LIKE @searchValue OR role LIKE @searchValue";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@searchValue", "%" + searchValue + "%");
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        dataGridView1.DataSource = dt;
+                    }
+                }
+            }
+
         }
     }
 }

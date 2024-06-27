@@ -9,8 +9,6 @@ namespace Kyrsov
     public static class AddressPost
     {
         public static string region;
-        public static string apartment;
-        public static string apartment_nubmer;
         public static string street;
         public static string city;
         public static string post_office_address;

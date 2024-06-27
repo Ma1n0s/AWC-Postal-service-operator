@@ -80,12 +80,20 @@ namespace Kyrsov
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+
             var arr = SelectedButton.Text.Split('x');
             State.length = double.Parse(arr[0]);
             State.width = double.Parse(arr[1]);
             State.height = double.Parse(arr[2]);
 
             this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка неверно введены данные: " + ex.Message);
+            }
         }
 
         private void dimensions_Load(object sender, EventArgs e)
